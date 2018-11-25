@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script src="logic.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4" style="text-align:center">TRAIN SCHEDULES</h1>
+                <p class="lead" style="text-align:center">Search for a train scheule below</p>
+                <p class="lead" style="text-align:center">Current time is: <span id="time"></span></p>
+            </div>
+        </div>
+        <div class="container-fluid" style="border-style:solid; margin-bottom:1em">
+            <nav class="navbar navbar-light bg-light">
+                <span class="navbar-brand mb-0 h1">Current Train Schedule</span>
+            </nav>
+            <div class="table-responsive" style="padding:1em">
+            <table class="table table-striped" style="border-style: solid" id="train-table">  
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency (min)</th>
+                        <th scope="col">Next Arrival (Military Time - HH:MM)</th>
+                        <th scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div> 
+        </div>
+    <div class="container-fluid" style="border-style:solid; margin-bottom:1em">
+            <nav class="navbar navbar-light bg-light" style="width: 100%">
+                <span class="navbar-brand mb-0 h1">Add Train</span>
+            </nav>
+        <form style="padding:1em">
+            <div class="form-group">
+                <label for="train-name">Train Name</label>
+                <input type="train-name" class="form-control" id="train-name">
+            </div>
+            <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="destination" class="form-control" id="destination">
+            </div>
+            <div class="form-group">
+                    <label for="first-train">First Train Time</label>
+                    <input type="first-train" class="form-control" id="first-train">
+            </div>
+            <div class="form-group">
+                <label for="frequency">Frequency (min)</label>
+                <input type="frequency" class="form-control" id="frequency">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2" id="submit">Submit</button>
+        </form>
+        </div>
+    </div>
+</body>
+
+</html>
