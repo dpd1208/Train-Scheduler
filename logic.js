@@ -24,12 +24,8 @@ $(document).ready(function () {
     var destination = $("#destination").val().trim();
 
     //converts user input to usable info
-    var firstTime = moment($("#first-train").val().trim(), "hh:mm").subtract(1, "years").format("X");
+    var firstTime = moment($("#first-train").val().trim(), "hh:mm").format('hh:mm a');
     var frequency = $("#frequency").val().trim();
-
-    //current time
-    var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
     //gathers together all our new train info
     var newTrain = {
@@ -62,12 +58,16 @@ $(document).ready(function () {
     var firstTime = childSnapshot.val().arrivalTime;
     var frequency = childSnapshot.val().occurence;
 
-
+//current time
+var currentTime = moment();
+console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
     //makes first train time neater
-    var trainTime = moment.unix(firstTime).format("hh:mm");
+    var trainTime = moment.unix(firstTime).format("HHmm");
     console.log(trainTime);
+
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
     //calculate difference between times
-    var difference = moment().diff(moment(firstTime), "minutes");
+    var difference = moment().diff(moment(firstTimeConverted), "minutes");
     console.log(difference);
     //time apart(remainder)
     var trainRemaining = difference % frequency;
